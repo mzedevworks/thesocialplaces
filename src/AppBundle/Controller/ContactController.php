@@ -27,19 +27,15 @@ class ContactController extends Controller
         $form = $this->createForm(ContactForm::class, $contact);
         
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $contact = $form->getData();
             $em->persist($contact);
             if($em->flush()){
-                $this->addFlash(
-                    'notice',
-                    'Your contact message has been successfuly send'
-                );
+               $this->addFlash('success', 'post.updated_successfully'); 
             }
-            //RMust edirect to another page to stop users 
-            //from resubmiting after refreshing
-            return $this->redirectToRoute('contact');
+            //Must edirect to another page to stop users 
+            //from resubmit after refreshing
+            return $this->redirectToRoute('homepage');
         }
         return $this->render('contact/contact.html.twig', array(
             'form' => $form->createView(),

@@ -9,13 +9,7 @@
                 
                 <h2>Let’s Chat</h2>
                 <p>Get in touch with us, we’d love to find out how we can help your business!</p>
-                {% for label, messages in app.session.flashBag() %}
-                    {% for message in messages %}
-                        <div class="flash-{{ label }}">
-                            {{ message }}
-                        </div>
-                    {% endfor %}
-                {% endfor %}
+                   
                 <div id="wrapper">
                     <div id="container">
                         {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}

@@ -12,7 +12,7 @@ use AppBundle\Entity\ContactUs;
 
 class ContactForm extends AbstractType
 {
-    public function buildForm(FormBuilderInterface $builder)
+    public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
             ->add('name_and_surname', TextType::class, array(
