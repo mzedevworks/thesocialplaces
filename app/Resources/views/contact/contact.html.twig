@@ -1,0 +1,108 @@
+{% extends 'base.html.twig' %}
+{% block body %}
+    <section class="signup">
+    <div class="container">
+        <div class="row">  
+        <!-- Contact Form Start -->
+            <div class="col-lg-9 col-md-9 col-sm-12 col-xs-12">
+            <div class="contact">
+                
+                <h2>Let’s Chat</h2>
+                <p>Get in touch with us, we’d love to find out how we can help your business!</p>
+                {% for label, messages in app.session.flashBag() %}
+                    {% for message in messages %}
+                        <div class="flash-{{ label }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                {% endfor %}
+                <div id="wrapper">
+                    <div id="container">
+                        {{ form(form, {'attr': {'novalidate': 'novalidate'}}) }}
+                        {{ form_widget(form) }}
+                        {{ form_end(form) }}
+                    </div>
+                </div>
+              </div>
+            </div>
+                <div class="col-lg-3 col-md-3 col-sm-12 col-xs-12">
+                <div class="contact-details">
+                    <h2>Contact Info</h2>
+                    <p>Call us, maybe</p>
+                    <hr>
+                    <address>
+                    <ul>
+                      <li><strong class="title"><i class="fa fa-phone"></i>  021 976 1300</strong></li>
+                      <li><strong class="title"><i class="fa fa-mobile"></i>  021 976 1300</strong></li>
+                      <li><strong class="title"><i class="fa fa-envelope"></i> <a href="mailto:letschat@socialplaces.co.za">letschat@socialplaces.co.za</a></strong></li>
+                    </ul>
+                    </address>
+                    <hr>
+                    <div class="social"> <a href="#" title="Facebook"><i class="fa fa-facebook-square"></i></a> <a href="#" title="Linkedin"><i class="fa fa-linkedin-square"></i></a> <a href="#" title="Gplus"><i class="fa fa-google-plus-square"></i></a> <a href="#" title="Twitter"><i class="fa fa-twitter-square"></i></a> <a href="#" title="Pinterest"><i class="fa fa-pinterest-square"></i></a> <a href="#" title="Instagram"><i class="fa fa-instagram"></i> </a> <a href="#" title="Flickr"><i class="fa fa-flickr"></i></a> </div>
+                </div>
+                <div class=" gap-30"></div>
+                <hr> 
+
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion"  href="#collapseOne">
+                                 Go Listings
+                                </a>
+                          </h4>
+                        </div>
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                          <div class="panel-body">
+                                We setup and manage your business across the most popular maps and review sites, making sure your business gets the love it deserves, both online and offline.
+                          </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseTwo">
+                                  Go Review
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseTwo" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                We manage and consolidate your reviews across all platforms, onto one dashboard, as well as post your responses to these platforms to save you time.
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h4 class="panel-title">
+                                <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseThree">
+                                  Go Ads
+                                </a>
+                            </h4>
+                        </div>
+                        <div id="collapseThree" class="panel-collapse collapse">
+                          <div class="panel-body">
+                                Create your business on TripAdvidor as an individual listing or across multiple listings. Let us optimize your listing to ensure you reach a large audience of travelers and tourists throughout the world. We will also work with you to create positive reviews and get the most from the TripAdvisor platform and tools.
+                          </div>
+                        </div>
+                    </div>
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                          <h4 class="panel-title">
+                                <a data-toggle="collapse" class="collapsed" data-parent="#accordion" href="#collapseFour">
+                                  Go Social
+                                </a>
+                          </h4>
+                        </div>
+                        <div id="collapseFour" class="panel-collapse collapse">
+                          <div class="panel-body">
+                                Submit your business to Google individually or in bulk and let us optimize your listing to help you get onto the 1st page of Google. Our services include monthly reporting to ensure you have regular engagement with your customers reviews as well as ensure you achieve a positive return on investment.
+                          </div>
+                        </div>
+                    </div>
+                </div>    		  
+            </div>
+        </div>
+    </div>
+  </section>
+{% endblock %}
