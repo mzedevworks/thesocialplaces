@@ -33,6 +33,7 @@ class ContactController extends Controller
             //Send email to user
             //Emails should be set in a config file and template for emails to 
             //dynamically pull form the databse
+            
             $message = new \Swift_Message('Contact Success');
             $message->setFrom('socialplaces@noreply.co.za');
             $message->setTo($contact->getEmailAddress());
