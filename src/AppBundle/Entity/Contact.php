@@ -3,14 +3,15 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
- * ContactUs
+ * Contact
  *
- * @ORM\Table(name="contact_us")
- * @ORM\Entity(repositoryClass="AppBundle\Repository\ContactUsRepository")
+ * @ORM\Table(name="contact")
+ * @ORM\Entity(repositoryClass="AppBundle\Repository\ContactRepository")
  */
-class ContactUs
+class Contact
 {
     /**
      * @var int
@@ -24,35 +25,43 @@ class ContactUs
     /**
      * @var string
      *
-     * @ORM\Column(name="name_and_surname", type="text", unique=true)
+     * @ORM\Column(name="name_and_surname", type="string", length=255)
+     * @Assert\NotBlank(message = "Name and Surname cannot be blank")
      */
     private $nameAndSurname;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="email_address", type="text", unique=true)
+     * @ORM\Column(name="email_address", type="string", length=255)
+     * @Assert\NotBlank(
+     *                 message = "email is required"
+     * )
+     * @Assert\Email(
+     *              message = "The email '{{ value }}' is not a valid email.",
+     *              checkMX = true
+     * )
      */
     private $emailAddress;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="company", type="text")
+     * @ORM\Column(name="company", type="string", length=255, nullable=true)
      */
     private $company;
 
     /**
-     * @var int
+     * @var string
      *
-     * @ORM\Column(name="telephone", type="integer", nullable=true)
+     * @ORM\Column(name="telephone", type="string", length=10)
      */
     private $telephone;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="message", type="text")
+     * @ORM\Column(name="message", type="string", length=255, nullable=true)
      */
     private $message;
 
@@ -72,7 +81,7 @@ class ContactUs
      *
      * @param string $nameAndSurname
      *
-     * @return ContactUs
+     * @return Contact
      */
     public function setNameAndSurname($nameAndSurname)
     {
@@ -96,7 +105,7 @@ class ContactUs
      *
      * @param string $emailAddress
      *
-     * @return ContactUs
+     * @return Contact
      */
     public function setEmailAddress($emailAddress)
     {
@@ -120,7 +129,7 @@ class ContactUs
      *
      * @param string $company
      *
-     * @return ContactUs
+     * @return Contact
      */
     public function setCompany($company)
     {
@@ -142,9 +151,9 @@ class ContactUs
     /**
      * Set telephone
      *
-     * @param integer $telephone
+     * @param string $telephone
      *
-     * @return ContactUs
+     * @return Contact
      */
     public function setTelephone($telephone)
     {
@@ -156,7 +165,7 @@ class ContactUs
     /**
      * Get telephone
      *
-     * @return int
+     * @return string
      */
     public function getTelephone()
     {
@@ -168,7 +177,7 @@ class ContactUs
      *
      * @param string $message
      *
-     * @return ContactUs
+     * @return Contact
      */
     public function setMessage($message)
     {
@@ -187,3 +196,4 @@ class ContactUs
         return $this->message;
     }
 }
+

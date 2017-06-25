@@ -1,8 +1,8 @@
 <?php
-// src/AppBundle/Controller/ContactController.php
-namespace AppBundle\Controller;
+// src/AppBundle/Controller/Web/ContactController.php
+namespace AppBundle\Controller\Web;
 
-use AppBundle\Entity\ContactUs;
+use AppBundle\Entity\Contact;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
@@ -20,7 +20,7 @@ class ContactController extends Controller
                                 )
     {
         // create a new contact
-        $contact = new ContactUs();
+        $contact = new Contact();
 
         $form = $this->createForm(ContactForm::class, $contact);
         

@@ -8,7 +8,7 @@ use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\OptionsResolver\OptionsResolver;
-use AppBundle\Entity\ContactUs;
+use AppBundle\Entity\Contact;
 
 class ContactForm extends AbstractType
 {
@@ -38,7 +38,7 @@ class ContactForm extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => ContactUs::class,
+            'data_class' => Contact::class,
         ));
     }
 }
