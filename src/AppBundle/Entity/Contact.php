@@ -4,6 +4,7 @@ namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Validator\Constraints as Assert;
+use Captcha\Bundle\CaptchaBundle\Validator\Constraints as CaptchaAssert;
 
 /**
  * Contact
@@ -65,7 +66,12 @@ class Contact
      */
     private $message;
 
-
+    /**
+    * @CaptchaAssert\ValidCaptcha(
+    *      message = "CAPTCHA validation failed, try again."
+    * )
+    */
+    protected $captchaCode;
     /**
      * Get id
      *
@@ -194,6 +200,16 @@ class Contact
     public function getMessage()
     {
         return $this->message;
+    }
+
+    public function getCaptchaCode()
+    {
+        return $this->captchaCode;
+    }
+
+    public function setCaptchaCode($captchaCode)
+    {
+        $this->captchaCode = $captchaCode;
     }
 }
 

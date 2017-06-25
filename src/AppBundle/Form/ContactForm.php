@@ -31,6 +31,11 @@ class ContactForm extends AbstractType
                                     'label' => 'Your Message', 
                                     'attr' => array('rows' => 10)
                                 ))
+            ->add('captchaCode', 
+                    'Captcha\Bundle\CaptchaBundle\Form\Type\CaptchaType', 
+                            array(
+                                'captchaConfig' => 'ContactCaptcha'
+                            ))
             ->add('save', SubmitType::class, array('label' => 'Send'))
         ;
     }
